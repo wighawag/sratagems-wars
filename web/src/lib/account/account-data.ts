@@ -31,7 +31,13 @@ function fromOnChainActionToPendingTransaction(
 
 export class StratagemsWarsAccountData extends BaseAccountHandler<AccountData, StratagemsWarsMetadata> {
 	constructor() {
-		super('stratagems-wars', {onchainActions: {}}, fromOnChainActionToPendingTransaction);
+		super(
+			'stratagems-wars',
+			() => ({
+				onchainActions: {},
+			}),
+			fromOnChainActionToPendingTransaction,
+		);
 	}
 
 	_merge(
